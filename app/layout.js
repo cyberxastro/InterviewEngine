@@ -3,7 +3,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "sonner";
 import { ThemeProvider } from "./dashboard/_components/theme-provider"
-
+import { Analytics } from "@vercel/analytics/react"
 // import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert"
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
           >
             <Toaster />
             {children}
+            <Analytics />
           </ThemeProvider>
         </body>
       </html>
