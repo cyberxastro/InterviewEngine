@@ -37,4 +37,4 @@ Our platform is designed to be straightforward and easy to use. From starting a 
 
 ## 🚀 Try InterviewEngine Today!
 
-Ready to elevate your interview skills? [Sign Up](#) now and start preparing for success with InterviewEngine!
+Ready to elevate your interview skills? [Sign Up](https://interviewengine.vercel.app/) now and start preparing for success with InterviewEngine!
