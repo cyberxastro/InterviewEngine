@@ -32,15 +32,15 @@ function AddNewInterview() {
 
     const onSubmit=async(e)=>{
         setLoading(true)
-        e.preventDefault(),
-        console.log(jobPosition,jobDesc,jobExperience)
-
+        e.preventDefault()
+        
+        // console.log(jobPosition,jobDesc,jobExperience)
         const InputPrompt = "Job Position: "+jobPosition+", Job Description: "+jobDesc+", Years of Experience: "+jobExperience+" , Depends on this information please give me "+process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT+" interview questions with answers in Json Format, Give Question and Answers as field in JSON, dont want anything extra, only questions and answers"
 
         const result = await chatSession.sendMessage(InputPrompt)
-        console.log(result.response.text())
+        // console.log(result.response.text())
         const MockJsonResp = (result.response.text()).replace('```json','').replace('```','')
-        console.log(JSON.parse(MockJsonResp));
+        // console.log(JSON.parse(MockJsonResp));
         setJsonResponse(MockJsonResp)
         if(MockJsonResp)
         {
@@ -57,13 +57,13 @@ function AddNewInterview() {
         }).returning({mockId:MockInterview.mockId})
 
 
-        console.log("Inserted id:",resp)
+        // console.log("Inserted id:",resp)
         if (resp) {
             setOpenDialog(false)
             router.push('/dashboard/interview/'+resp[0]?.mockId)
         }
     }else{
-        console.log("Error")
+        // console.log("Error")
     }
         setLoading(false)
     }
