@@ -33,11 +33,11 @@ import { UpdateCreditUsageContext } from "@/app/(context)/UpdateCreditUsageConte
         {/* @ts-ignore */}
         const result:History[]=await db.select().from(AIOutput)
         .where(eq(AIOutput.createdBy,user?.primaryEmailAddress?.emailAddress))
-
+        {/* @ts-ignore */}
         GetTotalUsage(result)
     }
 
-    const GetTotalUsage=(result:HISTORY)=>{
+    const GetTotalUsage=(result:HISTORY[])=>{
         let total:number=0;
         result.forEach(element=>{
             total=total+Number(element.aiResponse?.length)
