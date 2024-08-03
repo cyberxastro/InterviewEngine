@@ -12,9 +12,7 @@ import { db } from "@/utils/db";
 import { AIOutput } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import moment from "moment";
-import { TotalUsageContext } from "@/app/(context)/TotalUsageContext";
 import { useRouter } from "next/navigation";
-import { UpdateCreditUsageContext } from "@/app/(context)/UpdateCreditUsageContext";
 
 
 interface PROPS{
@@ -32,16 +30,9 @@ function CreateNewContent(props:PROPS){
     const [aiOutput,setAiOutput]=useState<string>('')
     const {user}=useUser();
     const router=useRouter()
-    const {totalUsage,setTotalUsage}=useContext(TotalUsageContext)
-    const {updateCreditUsage,setUpdateCreditUsage}=useContext(UpdateCreditUsageContext)
-
 
     const GenerateAIContent=async (formData:any)=>{
-        if(totalUsage>=100000){
 
-            router.push('/dashboard/billing')
-            return;
-        }
         setLoading(true)
         const SelectedPrompt=selectedTemplate?.aiPrompt;
         const FinalAIPrompt=JSON.stringify(formData)+", "+SelectedPrompt;
@@ -50,7 +41,6 @@ function CreateNewContent(props:PROPS){
         setAiOutput(result?.response.text())
         await SaveInDb(formData,selectedTemplate?.slug,result?.response.text())
         setLoading(false)
-        setUpdateCreditUsage(Date.now())
     }
 
 
