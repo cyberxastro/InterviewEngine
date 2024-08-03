@@ -4,7 +4,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import path from "path";
 import React, { useEffect } from "react";
-import UsageTrack from "./UsageTrack";
 import Link from "next/link";
 
 function SideNav() {
@@ -46,9 +45,6 @@ function SideNav() {
                         </div>
                     </Link>
                 ))}
-            </div>
-            <div className="absolute bottom-10 left-0 w-full">
-                <UsageTrack />
             </div>
         </div>
     )
