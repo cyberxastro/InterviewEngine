@@ -22,13 +22,20 @@ import { UpdateCreditUsageContext } from "@/app/(context)/UpdateCreditUsageConte
         user&&GetData()
     },[updateCreditUsage&&user])
 
-    const GetData=async ()=>{
-        const result:History[]=await  db.select().from(AIOutput)
+    // const GetData=async ()=>{
+    //     const result:History[]=await db.select().from(AIOutput)
+    //     .where(eq(AIOutput.createdBy,user?.primaryEmailAddress?.emailAddress))
+
+    //     GetTotalUsage(result)
+    // }
+
+    const GetData = async ()=>{
+        {/* @ts-ignore */}
+        const result:History[]=await db.select().from(AIOutput)
         .where(eq(AIOutput.createdBy,user?.primaryEmailAddress?.emailAddress))
 
         GetTotalUsage(result)
     }
-
 
     const GetTotalUsage=(result:HISTORY)=>{
         let total:number=0;
