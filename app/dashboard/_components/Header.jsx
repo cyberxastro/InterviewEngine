@@ -39,7 +39,7 @@ function Header() {
             className={`hover:text-primary hover:font-bold transition-all cursor-pointer
                 ${path == '/dashboard/upgrade'&&'text-primary font-bold'}`}
             >Upgrade</li> */}
-                <Link href={'https://github.com/astroxhacker/InterviewEngine'} target="_blank">
+                <Link href={'#'} target="_blank">
                     <li
                         className={`hover:text-primary hover:font-bold transition-all cursor-pointer
                 ${path == '/dashboard/how' && 'text-primary font-bold'}`}
