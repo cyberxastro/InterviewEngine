@@ -23,7 +23,7 @@ function Dashboard(){
             </div>
 
             <InterviewList />
-
+            <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "786c18bf31ef469782777b04262dc0bc"}'></script>
         </div>
     )
 }
